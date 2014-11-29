@@ -2,7 +2,8 @@
 
 var React = require('react'),
     NewOptionInput = require('./newOptionInput.jsx'),
-    OptionsList = require('./optionsList.jsx');
+    OptionsList = require('./optionsList.jsx'),
+    _ = require('lodash');
 
 var RandomPicker = React.createClass({
   getInitialState: function() {
@@ -11,11 +12,15 @@ var RandomPicker = React.createClass({
   onOptionAdded: function(option) {
     this.setState({ options: this.state.options.concat(option) });
   },
+  onOptionRemoved: function(removedOption) {
+    this.setState({ options: _.reject(this.state.options, function(option) { return option === removedOption; }) });
+  },
   render: function() {
     return (
       <div>
         <NewOptionInput onOptionAdded={this.onOptionAdded}/>
-        <OptionsList options={this.state.options}/>
+        <OptionsList options={this.state.options}
+          onOptionRemoved={this.onOptionRemoved}/>
       </div>
     );
   }

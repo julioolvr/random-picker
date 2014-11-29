@@ -9,8 +9,9 @@ var OptionsList = React.createClass({
     return (
       <ul>
         {options.map(function(option) {
-          return <Option option={option}/>;
-        })}
+          return <Option option={option}
+            onOptionRemoved={this.props.onOptionRemoved}/>;
+        }.bind(this))}
       </ul>
     );
   }
