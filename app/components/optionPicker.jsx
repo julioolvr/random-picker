@@ -13,7 +13,7 @@ var OptionPicker = React.createClass({
   render: function() {
     return (
       <div>
-        <button onClick={this.selectOption}>Pick one!</button>
+        <button onClick={this.selectOption} disabled={this.props.options.length === 0}>Pick one!</button>
         <span>Selected: {this.state.selectedOption}</span>
       </div>
     );
