@@ -9,7 +9,7 @@ var Option = React.createClass({
   render: function() {
     return (
       <li>
-        {this.props.option} <a onClick={this.handleRemoveOption}>Remove</a>
+        {this.props.option.name} <a onClick={this.handleRemoveOption}>Remove</a>
       </li>
     );
   }

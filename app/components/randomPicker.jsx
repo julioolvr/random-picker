@@ -4,11 +4,12 @@ var React = require('react'),
     NewOptionInput = require('./newOptionInput.jsx'),
     OptionsList = require('./optionsList.jsx'),
     OptionPicker = require('./optionPicker.jsx'),
+    Option = require('../models/option.js'),
     _ = require('lodash');
 
 var RandomPicker = React.createClass({
   getInitialState: function() {
-    return { options: ['Option A', 'Option B'] };
+    return { options: [new Option('Option A'), new Option('Option B')] };
   },
   onOptionAdded: function(option) {
     this.setState({ options: this.state.options.concat(option) });
